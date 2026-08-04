@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devora – Smart Restaurant & POS Software</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 50%, #111820 100%);
+    padding: 56px 40px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #222;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%; transform: translateX(-50%);
+    width: 500px; height: 300px;
+    background: radial-gradient(ellipse, rgba(255,107,53,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .logo-icon {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+  }
+  .logo-text {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff 60%, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+  .hero h1 span { color: #ff6b35; }
+
+  .hero p {
+    font-size: 17px;
+    color: #aaa;
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: 1.6;
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(255,107,53,0.15);
+    border: 1px solid rgba(255,107,53,0.4);
+    color: #ff6b35;
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-bottom: 10px;
+  }
+
+  /* ── PAIN POINTS ── */
+  .section { padding: 48px 40px; max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6b35;
+    margin-bottom: 10px;
+  }
+  .section h2 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  .pain-card {
+    background: #1a1a1a;
+    border: 1px solid #2a2a2a;
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pain-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4444, #ff6b35);
+  }
+  .pain-icon { font-size: 28px; margin-bottom: 12px; display: block; }
+  .pain-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .pain-card p { font-size: 14px; color: #888; line-height: 1.5; }
+
+  /* ── FEATURES ── */
+  .features-bg {
+    background: #111;
+    border-top: 1px solid #1e1e1e;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature-card {
+    background: #1a1a1a;
+    border: 1px solid #252525;
+    border-radius: 16px;
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .feature-card:hover { border-color: #ff6b35; }
+  .feature-icon {
+    width: 44px; height: 44px;
+    background: rgba(255,107,53,0.12);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 14px;
+    border: 1px solid rgba(255,107,53,0.2);
+  }
+  .feature-card h3 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .feature-card p { font-size: 13px; color: #777; line-height: 1.6; }
+
+  /* ── AI HIGHLIGHT ── */
+  .ai-block {
+    background: linear-gradient(135deg, #1a1208, #0f0f0f);
+    border: 1px solid rgba(255,147,30,0.25);
+    border-radius: 20px;
+    padding: 36px;
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    margin-top: 40px;
+  }
+  .ai-icon-wrap {
+    flex-shrink: 0;
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 34px;
+    box-shadow: 0 8px 32px rgba(255,107,53,0.35);
+  }
+  .ai-block h3 {
+    font-size: 20px; font-weight: 800; margin-bottom: 8px;
+    background: linear-gradient(90deg, #fff, #f7931e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .ai-block p { font-size: 14px; color: #888; line-height: 1.6; }
+  .ai-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .pill {
+    background: rgba(255,107,53,0.12);
+    border: 1px solid rgba(255,107,53,0.25);
+    color: #f7931e;
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  /* ── HOW IT WORKS ── */
+  .steps { display: flex; gap: 0; margin-top: 8px; }
+  .step {
+    flex: 1;
+    text-align: center;
+    padding: 28px 20px;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -12px; top: 50%;
+    transform: translateY(-50%);
+    color: #333;
+    font-size: 20px;
+  }
+  .step-num {
+    width: 40px; height: 40px;
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px; font-weight: 800;
+    margin: 0 auto 14px;
+    box-shadow: 0 4px 16px rgba(255,107,53,0.35);
+  }
+  .step h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+  .step p { font-size: 12px; color: #666; line-height: 1.5; }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    padding: 56px 40px;
+    text-align: center;
+  }
+  .cta-section h2 {
+    font-size: 34px; font-weight: 900;
+    color: #fff; margin-bottom: 12px; letter-spacing: -0.5px;
+  }
+  .cta-section p { font-size: 17px; color: rgba(255,255,255,0.85); margin-bottom: 28px; }
+
+  .cta-btn {
+    display: inline-block;
+    background: #fff;
+    color: #ff6b35;
+    padding: 16px 40px;
+    border-radius: 100px;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    letter-spacing: -0.2px;
+  }
+  .cta-meta { margin-top: 18px; font-size: 13px; color: rgba(255,255,255,0.7); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #0a0a0a;
+    padding: 24px 40px;
+    text-align: center;
+    font-size: 13px;
+    color: #444;
+    border-top: 1px solid #1a1a1a;
+  }
+  .footer span { color: #ff6b35; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 28px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .features-grid { grid-template-columns: 1fr; }
+    .steps { flex-direction: column; }
+    .step::after { display: none; }
+    .ai-block { flex-direction: column; }
+    .section { padding: 36px 20px; }
+    .hero { padding: 40px 20px 36px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="logo">
+    <div class="logo-icon">🍽️</div>
+    <div class="logo-text">Devora</div>
+  </div>
+  <div class="badge">🇵🇰 Built for Pakistani Restaurants</div>
+  <h1>Apna Restaurant<br><span>Smart banayen.</span></h1>
+  <p>Billing, inventory, AI-powered insights, cash count, aur attendance — sab ek jagah. Manual jhanjhat khatam.</p>
+</div>
+
+<!-- PAIN POINTS -->
+<div class="section">
+  <div class="section-label">The Problem</div>
+  <h2>Kya yeh problems familiar lagti hain?</h2>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <span class="pain-icon">🧾</span>
+      <h3>Billing mein galtiyan</h3>
+      <p>Rush hours mein manually bill banana — overcharging, undercharging, customer complaints. Roz ka drama.</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">📉</span>
+      <h3>Sales ka koi record nahi</h3>
+      <p>Din ke end mein pata nahi kaunsa item zyada bika, kitni revenue aayi, ya kab rush aaya.</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">📦</span>
+      <h3>Stock khatam — pata nahi</h3>
+      <p>Chicken ka stock subah hai, shaam ko nahi. Customer order karta hai, embarrassment hoti hai.</p>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">⏱️</span>
+      <h3>Slow order processing</h3>
+      <p>Order likhna, kitchen tak pohanchana, track karna — time barbaad, customers wait karte hain.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features-bg">
+  <div class="section">
+    <div class="section-label">The Solution</div>
+    <h2>Devora kya karta hai?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Smart POS & Billing</h3>
+        <p>One-tap billing, digital receipts, table management. Rush hours mein bhi zero errors.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Live Sales Dashboard</h3>
+        <p>Real-time revenue, best-selling items, peak hours — phone pe dekhen jab chahein.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📦</div>
+        <h3>Inventory Tracking</h3>
+        <p>Stock automatically deduct hoti hai per order. Low stock alert milta hai pehle se.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💵</div>
+        <h3>Automatic Cash Count</h3>
+        <p>Din ka closing cash count Devora khud karta hai. Discrepancies instantly flag hoti hain.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Staff Attendance</h3>
+        <p>Digital attendance, shifts, aur performance — sab CRM mein track hota hai.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚴</div>
+        <h3>Delivery Integration</h3>
+        <p>Delivery orders separate track hoti hain — rider status, ETA, delivery history.</p>
+      </div>
+    </div>
+
+    <!-- AI BLOCK -->
+    <div class="ai-block">
+      <div class="ai-icon-wrap">🤖</div>
+      <div>
+        <h3>Devora AI Bot — Aap ka Smart Business Advisor</h3>
+        <p>Aap ke restaurant ka data analyze karke AI automatically suggestions deta hai: kaunsa item promote karein, kab discount run karein, kab extra staff rakhein, aur cash discrepancy flag karta hai — bina aap ke pooche.</p>
+        <div class="ai-pills">
+          <span class="pill">Sales Suggestions</span>
+          <span class="pill">Auto Cash Count</span>
+          <span class="pill">Peak Hour Alerts</span>
+          <span class="pill">Menu Optimization</span>
+          <span class="pill">Stock Warnings</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="section-label">How It Works</div>
+  <h2>Shuru karna easy hai</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Free Demo</h4>
+      <p>15 minutes mein live demo dekhen — koi charge nahi, koi commitment nahi.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Setup</h4>
+      <p>Aap ke restaurant ke hisaab se menu, tables, aur staff configure karein.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Go Live</h4>
+      <p>Same day se shuru. Training bhi dete hain — koi technical knowledge zaroor nahi.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Grow</h4>
+      <p>AI insights se apne restaurant ki performance roz improve karein.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Free Demo Book Karein</h2>
+  <p>15 minutes. Apne restaurant mein koi change nahi — sirf dekhen ke Devora kaise kaam karta hai.</p>
+  <a href="https://wa.me/923XXXXXXXXX?text=Assalam+o+Alaikum%21+Devora+ka+demo+chahiye" class="cta-btn">
+    📲 WhatsApp pe Demo Book Karein
+  </a>
+  <div class="cta-meta">✅ Bilkul Free &nbsp;|&nbsp; ✅ No Commitment &nbsp;|&nbsp; ✅ Faisalabad-based Support</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong style="color:#fff">Devora</strong> — Restaurant & POS Software &nbsp;|&nbsp;
+  <span>Made for Faisalabad</span> &nbsp;|&nbsp;
+  WhatsApp: <span>+92 3XX XXXXXXX</span>
+</div>
+
+</body>
+</html>

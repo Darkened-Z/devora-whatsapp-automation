@@ -1,0 +1,20 @@
+node_modules/
+.session/
+.wwebjs_auth/
+.wwebjs_cache/
+*.log
+
+# Secrets & runtime data (never commit)
+.env
+replies.json
+devora_state.json
+
+# Python bytecode cache
+__pycache__/
+*.pyc
+
+# Large build artifacts (don't bloat git history)
+# node.exe = 89MB Node runtime; copy from your system Node to rebuild the installer
+node.exe
+# the built Setup.exe
+installer-output/
